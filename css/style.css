@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap');
+
 * {
     box-sizing: border-box;
 }
@@ -10,6 +12,19 @@ body {
     margin: 0;
     padding: 0;
     color: #fff;
+    
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .gridWrapper {
@@ -36,7 +51,7 @@ body {
 }
 
 .overlay-tint * {
-    z-index: 1;
+    z-index: 2;
 }
 
 .section-grid-50 {
@@ -65,45 +80,50 @@ body {
     padding: 2em;
 }
 
-
-/* */
-.ml5 {
-    position: relative;
-    font-weight: 300;
-    font-size: 4.5em;
-    color: #fff;
+.btn-blue-rounded {
+    background-color: #2746e5;
+    color: white;
+    padding: 0.75em 1.5em;
+    border-radius: 25px;
 }
-  
-.ml5 .text-wrapper {
-    position: relative;
-    display: inline-block;
-    padding-top: 0.1em;
-    padding-right: 0.05em;
-    padding-bottom: 0.15em;
-    line-height: 1em;
-}
-  
-.ml5 .line {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 3px;
-    width: 100%;
-    background-color: #fff;
-    transform-origin: 0.5 0;
-}
-  
-.ml5 .letters {
-    display: inline-block;
-    opacity: 0;
-}
-
 
 /* Desktop */
-main {
-    background: #101010;
+.landing-page {
+    background-image: url("../img/landing-page.jpg");
+    background-size: cover;
+    background-position: center;
+    
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    /* background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%); */
+}
+
+.landing-page header {
+    max-width: 60ch;
+}
+
+.landing-page header h1 {
+    font-weight: 300;
+    font-size: 2.75rem;
+    margin-bottom: 0.1em;
+}
+
+.landing-page header h1 .word {
+    display: inline-block;
+    line-height: 1em;
+}
+
+
+.landing-page header p {
+    font-weight: 400;
+    margin-bottom: 2.25em;
+}
+
+.landing-btn {
+    text-transform: uppercase;
+    font-size: 1.1em;
+    font-weight: 400;
+    letter-spacing: 2px;
 }
 
 /* Mobile */

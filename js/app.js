@@ -6,7 +6,7 @@ particlesJS('particles-js',
         "value": 80,
         "density": {
           "enable": true,
-          "value_area": 1000
+          "value_area": 800
         }
       },
       "color": {
@@ -51,7 +51,7 @@ particlesJS('particles-js',
         "enable": true,
         "distance": 150,
         "color": "#ffffff",
-        "color_mouse": "#f50f48",
+        "color_mouse": "#721196",
         "opacity": 0.4,
         "width": 1
       },
