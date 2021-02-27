@@ -1,4 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400&display=swap');
+/* 
+
+*** KOMMENTAR-SYNTAX ***
+
+Kommentarer som ser ut såhär:   / *
+                                  * XXX
+                                  * /
+
+Betyder att följande css stylear an ny html sida.
+
+Kommentarer som ser ut såhär: / * XXX * /
+
+Betyder att följande css stylear en ny sektion/element på samma sida som
+senaste av den förra ovanstående kommentaren.
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;500;600;700&display=swap');
+
+
+/* Base Structure */
 
 * {
     box-sizing: border-box;
@@ -12,7 +32,7 @@ body {
     margin: 0;
     padding: 0;
     color: #fff;
-    
+    font-family: 'Lato', Arial, sans-serif;
 }
 
 img {
@@ -80,20 +100,107 @@ a {
     padding: 2em;
 }
 
-.btn-blue-rounded {
-    background-color: #2746e5;
+.btn-gradient {
+    background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%);
     color: white;
-    padding: 0.75em 1.5em;
+    padding: 1em 1.75em;
     border-radius: 25px;
 }
 
-/* Desktop */
+.btn-gradient:hover {
+    background: linear-gradient(to right, rgba(39, 70, 229, 1) 0%, rgba(112, 21, 146, 1) 100%);
+    border: 2px solid white;
+}
+
+.btn-outline {
+    padding: 0.5em 1.1em;
+    background: none;
+    color: #fff;
+    border: 2px solid white;
+    border-radius: 25px;
+    transition: all 0.5s ease;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #2746e5;
+}
+
+
+/*  *** Mobile ***  */
+
+@media screen and (max-width: 768px) {
+
+}
+
+
+/*  *** Desktop ***  */
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    padding: 0 10%;
+
+    display: flex;
+    align-items: center;
+
+    color: white;
+
+    transition: background-color 0.5s ease;
+    z-index: 100;
+}
+
+nav .nav-items {
+    height: 100%;
+    margin-left: auto;
+    gap: 1.5em;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    font-size: 1em;
+    font-weight: 700;
+
+    list-style: none;
+    text-align: center;
+}
+
+nav .nav-items a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    text-transform: uppercase;
+
+    transition: all 0.5s ease;
+}
+
+nav .nav-items a:hover {
+    color: #2746e5;
+}
+
+nav.scrolled {
+    background-color: rgba(36, 36, 48, 0.8);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+
+/*
+ * Home Page
+ */
+
+/* Landing Page */
+
 .landing-page {
+    position: relative;
     background-image: url("../img/landing-page.jpg");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     
-    font-family: 'Lato', sans-serif;
     text-align: center;
     /* background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%); */
 }
@@ -104,7 +211,7 @@ a {
 
 .landing-page header h1 {
     font-weight: 300;
-    font-size: 2.75rem;
+    font-size: 2.75em;
     margin-bottom: 0.1em;
 }
 
@@ -121,12 +228,61 @@ a {
 
 .landing-btn {
     text-transform: uppercase;
-    font-size: 1.1em;
-    font-weight: 400;
+    font-size: 1em;
+    font-weight: 700;
     letter-spacing: 2px;
 }
 
-/* Mobile */
-@media screen and (max-width: 768px) {
-
+.wave {
+    position: absolute;
+    width: 100%;
+    height: 129px;
+    left: 0;
+    bottom: 0;
+    background: url("../img/wave.png");
+    animation: wave 10s linear infinite;
 }
+
+.wave::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 129px;
+    left: 0;
+    bottom: 10px;
+    background: url("../img/wave.png");
+    opacity: 0.4;
+    animation: wave-reverse 10s linear infinite;
+}
+
+.wave::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 129px;
+    left: 0;
+    bottom: 20px;
+    background: url("../img/wave.png");
+    opacity: 0.6;
+    animation-delay: -5s;
+    animation: wave 20s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 1280px;
+    }
+}
+
+@keyframes wave-reverse {
+    0% {
+        background-position: 1280px;
+    }
+    100% {
+        background-position: 0;
+    }
+}
+

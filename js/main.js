@@ -1,3 +1,16 @@
+document.onscroll = function() {
+
+  var nav = document.querySelector("nav");
+
+  if(window.pageYOffset > nav.offsetHeight) {
+      nav.classList.add("scrolled");
+  }
+  else {
+      nav.classList.remove("scrolled");
+  }
+
+}
+
 anime.timeline({loop: false})
   .add({
     targets: '.word',
