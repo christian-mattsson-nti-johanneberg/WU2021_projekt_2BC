@@ -538,6 +538,16 @@ var pJS = function(tag_id, params){
         p.vy /= mag;
         p.vy *= new_lol;
 
+        // if (Math.abs(p.vx) > 100) {
+        //   console.log(p.vx)
+        //   p.vx /= -p.vx;
+        //   p.vx *= -10
+        // }
+        // if (Math.abs(p.vy) > 100) {
+        //   p.vy /= -p.vy;
+        //   p.vy *= -10
+        // }
+
         p.x += p.vx * ms;
         p.y += p.vy * ms;
       }

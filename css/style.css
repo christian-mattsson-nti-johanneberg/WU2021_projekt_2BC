@@ -101,35 +101,56 @@ a {
 }
 
 .btn-gradient {
+    position: relative;
+    display: inline-block;
+    padding: 1em 1.75em;
     background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%);
     color: white;
-    padding: 1em 1.75em;
-    border-radius: 25px;
-}
-
-.btn-gradient:hover {
-    background: linear-gradient(to right, rgba(39, 70, 229, 1) 0%, rgba(112, 21, 146, 1) 100%);
-    border: 2px solid white;
+    border-radius: 1.5em;
+    transition: all 0.5s linear;
+    overflow: hidden;
 }
 
 .btn-outline {
+    position: relative;
+    display: inline-block;
     padding: 0.5em 1.1em;
     background: none;
-    color: #fff;
+    color: white;
     border: 2px solid white;
-    border-radius: 25px;
-    transition: all 0.5s ease;
+    border-radius: 1.5em;
+    transition: all 0.5s linear;
+    overflow: hidden;
 }
 
-.btn-outline:hover {
+.circle-fill span {
+    position: absolute;
+    width: 0;
+    height: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
     background: white;
-    color: #2746e5;
+    transition: width 1s ease, height 1s ease;
+    z-index: -1;
+}
+
+.circle-fill:hover span {
+    width: 500px;
+    height: 500px;
+}
+
+.circle-fill:hover {
+    background: linear-gradient(to right, rgba(39, 70, 229, 1) 0%, rgba(112, 21, 146, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 
 /*  *** Mobile ***  */
 
-@media screen and (max-width: 768px) {
+/* 768px / 16px = 48em */
+@media screen and (max-width: 48em) {
 
 }
 
@@ -172,7 +193,6 @@ nav .nav-items {
 nav .nav-items a {
     color: white;
     text-decoration: none;
-    position: relative;
     text-transform: uppercase;
 
     transition: all 0.5s ease;
