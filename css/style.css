@@ -47,9 +47,44 @@ a {
     text-decoration: none;
 }
 
+h1 {
+    font-weight: 300;
+    font-size: 2.75em;
+    margin-bottom: 0.1em;
+}
+
+p {
+    line-height: 1.5em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition: all 0.5s ease;
+}
+
+nav a:hover {
+    color: #2746e5;
+}
+
 .gridWrapper {
     display: grid;
-    width: 100%;
+    width: 100vw;
+    max-width: 100%;
     grid-template-rows: 100vh;
 }
 
@@ -74,12 +109,79 @@ a {
     z-index: 2;
 }
 
-.section-grid-50 {
+.overlay-gradient::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%);
+}
+
+.overlay-gradient * {
+    z-index: 2;
+}
+
+.wave {
+    position: absolute;
+    width: 100%;
+    height: 129px; /* PNG Height */
+    left: 0;
+    bottom: -5px;
+    background: url("../img/wave.png");
+    animation: wave 10s linear infinite;
+}
+
+.wave::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 129px;
+    left: 0;
+    bottom: 10px;
+    background: url("../img/wave.png");
+    opacity: 0.4;
+    animation: wave-reverse 10s linear infinite;
+}
+
+.wave::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 129px;
+    left: 0;
+    bottom: 20px;
+    background: url("../img/wave.png");
+    opacity: 0.6;
+    animation-delay: -5s;
+    animation: wave 20s linear infinite;
+}
+
+@keyframes wave {
+    0% {
+        background-position: 0;
+    }
+    100% {
+        background-position: 1280px;
+    }
+}
+
+@keyframes wave-reverse {
+    0% {
+        background-position: 1280px;
+    }
+    100% {
+        background-position: 0;
+    }
+}
+
+.grid-50 {
     display: grid;
     grid-template-columns: 50% 50%;
 }
 
-.section-grid-30 {
+.grid-30 {
     display: grid;
     grid-template-columns: repeat(3, calc(100%/3));
 }
@@ -87,16 +189,6 @@ a {
 .section-white {
     background-color: #fff;
     color: #000;
-    padding: 2em;
-}
-
-.section-green {
-    background-color: #54fd21;
-    padding: 2em;
-}
-
-.section-pink {
-    background-color: #FD2155;
     padding: 2em;
 }
 
@@ -146,6 +238,13 @@ a {
     -webkit-text-fill-color: transparent;
 }
 
+.gradient-text {
+    background: linear-gradient(to right, rgba(39, 70, 229, 1) 0%, rgba(112, 21, 146, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 /*  *** Mobile ***  */
 
@@ -163,7 +262,7 @@ nav {
     left: 0;
     width: 100%;
     height: 10%;
-    padding: 0 10%;
+    padding: 0 5% 0 10%;
 
     display: flex;
     align-items: center;
@@ -174,37 +273,77 @@ nav {
     z-index: 100;
 }
 
+nav.scrolled {
+    background-color: rgba(36, 36, 48, 18);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
 nav .nav-items {
     height: 100%;
     margin-left: auto;
-    gap: 1.5em;
 
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
-    font-size: 1em;
-    font-weight: 700;
-
-    list-style: none;
-    text-align: center;
+    gap: 1.5em;
 }
 
-nav .nav-items a {
-    color: white;
-    text-decoration: none;
-    text-transform: uppercase;
+nav .nav-items > li {
+    position: relative;
+}
+
+nav .dropdown {
+    position: absolute;
+    left: 0;
+    padding-top: calc(0.5em + 1rem); /* Arrow top + border (line 232) */
+
+    display: flex;
+    gap: 2em;
+
+    visibility: hidden;
+    opacity: 0;
+    white-space: nowrap;
 
     transition: all 0.5s ease;
 }
-
-nav .nav-items a:hover {
-    color: #2746e5;
+  
+nav .dropdown::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 0;
+    height: 0;
+    border-left: 1rem solid transparent;
+    border-right: 1rem solid transparent;
+    border-bottom: 1rem solid rgba(36, 36, 48, 18);
 }
 
-nav.scrolled {
-    background-color: rgba(36, 36, 48, 0.8);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+nav .nav-items li:hover .dropdown {    
+    opacity: 1;
+    visibility: visible;
+}
+
+nav .dropdown-link-arrow {    
+    transition: transform 0.25s ease;
+}
+
+nav .nav-items li:hover .dropdown-link-arrow {    
+    transform: rotateX(180deg);
+}
+
+nav .dropdown article {
+    background: rgba(36, 36, 48, 18);
+    display: flex;
+    gap: 2em;
+    padding: 1.75em;
+}
+
+nav .dropdown .feat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75em;
+    white-space: nowrap
 }
 
 
@@ -220,19 +359,12 @@ nav.scrolled {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    
+
     text-align: center;
-    /* background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%); */
 }
 
 .landing-page header {
     max-width: 60ch;
-}
-
-.landing-page header h1 {
-    font-weight: 300;
-    font-size: 2.75em;
-    margin-bottom: 0.1em;
 }
 
 .landing-page header .word {
@@ -252,56 +384,107 @@ nav.scrolled {
     letter-spacing: 2px;
 }
 
-.wave {
+
+/* What is cloud storage section */
+
+#cloud-storage {
+    padding: 2em 8em;
+    /* background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%); */
+}
+
+#cloud-storage article {
+    width: 60ch;
+    position: relative;
+}
+
+#cloud-storage #upload-anim .material-icons, 
+#cloud-storage #upload-anim .material-icons-outlined {
+    font-size: 5em;
+    margin: 3rem 0;
+    color: #222;
+    transform: scale(0);
+}
+
+#cloud-storage #upload-anim .check {
     position: absolute;
+    bottom: 59.65%;
+    left: 42.85%;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+#cloud-storage .upload-circle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+#cloud-storage .upload-circle {
+    width: 0.75em;
+    height: 0.75em;
+
+    background-color: #222;
+    border-radius: 50%;
+}
+
+
+/* Why Us Section */
+
+#why-us {
+    height: 75vh;
+    position: relative;
+    background: url("../img/science-in-hd-iPrjQEDnNEY-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    clip-path: polygon(0% 25%, 50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%);
+}
+
+#why-us article {
+    width: 60ch;
+}
+
+
+/* Features Section */
+
+#features > article {
+    width: 60ch;
+    text-align: center;
+}
+
+#features-grid {
     width: 100%;
-    height: 129px;
-    left: 0;
-    bottom: 0;
-    background: url("../img/wave.png");
-    animation: wave 10s linear infinite;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, calc(100%/3));
+    grid-template-rows: repeat(2, 50%);
+    position: relative;
 }
 
-.wave::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 129px;
-    left: 0;
-    bottom: 10px;
-    background: url("../img/wave.png");
-    opacity: 0.4;
-    animation: wave-reverse 10s linear infinite;
+#features-grid article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 2em;
+
+    transition: all 0.5s ease;
 }
 
-.wave::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 129px;
-    left: 0;
-    bottom: 20px;
-    background: url("../img/wave.png");
-    opacity: 0.6;
-    animation-delay: -5s;
-    animation: wave 20s linear infinite;
+#features-grid article:hover {
+    box-shadow:  0 0.25rem 2rem #2746e5;
 }
 
-@keyframes wave {
-    0% {
-        background-position: 0;
-    }
-    100% {
-        background-position: 1280px;
-    }
+#features-grid article h1 {
+    margin-top: 0;
+    background: linear-gradient(to right, rgba(39, 70, 229, 1) 0%, rgba(112, 21, 146, 1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-@keyframes wave-reverse {
-    0% {
-        background-position: 1280px;
-    }
-    100% {
-        background-position: 0;
-    }
+#features-grid article p {
+    margin-bottom: 0;
 }
-

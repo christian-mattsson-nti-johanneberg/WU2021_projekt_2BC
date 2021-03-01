@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
     </head>
     <body>
 
@@ -16,7 +18,24 @@
 
             <ul class="nav-items">
                 <li><a class="active" href="index.html">Home</a></li>
-                <li><a class="active" href="index.html">Prices</a></li>
+                <li class="dropdown-li">
+                    <a href="">Features<span class="material-icons dropdown-link-arrow">keyboard_arrow_down</span></a>
+                    <ul class="dropdown">
+                        <article>
+                            <section class="feat-row">
+                                <li><a href="">Feat 1</a></li>
+                                <li><a href="">Feat 2</a></li>
+                                <li><a href="">Feat 3</a></li>
+                            </section>
+                            <section class="feat-row">
+                                <li><a href="">Feat 4</a></li>
+                                <li><a href="">Feat 5</a></li>
+                                <li><a href="">Feat 6</a></li>
+                            </section>
+                        </article>
+                    </ul>
+                </li>
+                <li><a href="">Prices</a></li>
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
                 <li><a href="login.html">Login</a></li>
@@ -38,19 +57,68 @@
                 <div class="wave"></div>
             </main>
 
-            <section style="height:100vh;">
-
+            <section id="cloud-storage" class="grid-50 section-white">
+                <article>
+                    <h1 class="gradient-text">What is cloud storage?</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est rem laudantium deleniti numquam ducimus aperiam, necessitatibus quae iste dolores deserunt illo? Recusandae tenetur corporis animi, earum dolore, laudantium assumenda dolorem laboriosam praesentium cumque quo numquam magni modi quod repellendus nam delectus eligendi asperiores dolores quibusdam enim temporibus ullam amet! Iure, deserunt vel earum quo voluptatem fugit eligendi tempora ab cum id beatae fuga sapiente recusandae distinctio ullam eos deleniti aperiam ipsum esse eaque saepe voluptas? Quod quae, atque repellendus molestiae nobis sit modi animi consequatur. Expedita fugiat debitis, fuga odit quibusdam.</p>
+                </article>
+                <article id="upload-anim" class="center-items">
+                    <span class="material-icons-outlined cloud">cloud</span>
+                    <span class="material-icons-outlined check">cloud_done</span>
+                    <span class="upload-circle-container">
+                        <div class="upload-circle"></div>
+                        <div class="upload-circle"></div>
+                        <div class="upload-circle"></div>
+                    </span>
+                    <span class="material-icons laptop">laptop</span>
+                </article>
             </section>
 
-            <!-- What is cloud storage? -->
-
             <!-- Why us? -->
-
+            <section id="why-us" class="overlay-gradient center-items">
+                <article class="center-items">
+                    <h1>Why us?</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis ad accusantium eveniet nostrum unde reprehenderit fugit adipisci, odio sapiente, omnis quos velit harum obcaecati nesciunt cupiditate enim nobis. Rem et corporis ipsam labore totam inventore quis, magni numquam accusamus unde alias, vero laborum. Eum voluptate ipsum et. Quis, consectetur dignissimos?</p>
+                    <a href="" class="btn-outline circle-fill">Show me more!</a>
+                </article>
+            </section>
             <!-- Clip path thing -->
 
             <!-- Our Services / What we offer -->
+            <section id="features" class="center-items section-white">
+                <article>
+                    <h1 class="gradient-text">Features</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quibusdam explicabo eaque quam aut quis at in id. Iusto sapiente error dolores.</p>
+                </article>
+                <section id="features-grid">
+                    <article>
+                        <h1>Title</h1>
+                        <p>Description</p>
+                    </article>
+                    <article>
+                        <h1>Title</h1>
+                        <p>Description</p>
+                    </article>
+                    <article>
+                        <h1>Title</h1>
+                        <p>Description</p>
+                    </article>
+                    <article>
+                        <h1>Title</h1>
+                        <p>Description</p>
+                    </article>
+                    <article>
+                        <h1>Title</h1>
+                        <p>Description</p>
+                    </article>
+                    <article>
+                        <h1>Title</h1>
+                        <p>Description</p>
+                    </article>
+                </section>
+            </section>
 
-            <!-- What out customers are saying -->
+            <!-- What our customers are saying -->
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous"></script>
