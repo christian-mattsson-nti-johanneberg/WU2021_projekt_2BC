@@ -10,8 +10,6 @@
 var pJS = function(tag_id, params){
 
   var canvas_el = document.querySelector('#'+tag_id+' > .particles-js-canvas-el');
-  canvas_el.style.position = "absolute";
-  canvas_el.style.zIndex = "1";
 
   /* particles.js variables with default values */
   this.pJS = {
@@ -1527,9 +1525,11 @@ window.particlesJS = function(tag_id, params){
   /* set size canvas */
   canvas_el.style.width = "100%";
   canvas_el.style.height = "100%";
+  canvas_el.style.position = "absolute";
 
   /* append canvas */
-  var canvas = document.getElementById(tag_id).appendChild(canvas_el);
+  var canvas = document.getElementById(tag_id);
+  canvas = canvas.insertBefore(canvas_el, canvas.firstChild);
 
   /* launch particle.js */
   if(canvas != null){

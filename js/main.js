@@ -50,7 +50,7 @@ anime.timeline({loop: false})
   });
 
 
-  /* Cloud Upload Animation */
+/* Cloud Upload Animation */
 anime.timeline({loop: true})
   .add({
     targets: '.laptop',

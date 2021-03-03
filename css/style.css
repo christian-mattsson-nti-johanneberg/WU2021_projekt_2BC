@@ -49,7 +49,7 @@ a {
 
 h1 {
     font-weight: 300;
-    font-size: 2.75em;
+    font-size: 2.75rem;
     margin-bottom: 0.1em;
 }
 
@@ -61,7 +61,7 @@ nav ul {
     list-style: none;
     padding: 0;
     text-align: center;
-    font-size: 1em;
+    font-size: 1rem;
     font-weight: 700;
 }
 
@@ -105,8 +105,8 @@ nav a:hover {
     background: rgba(0, 0, 0, 0.6);
 }
 
-.overlay-tint * {
-    z-index: 2;
+.overlay-tint > * {
+    z-index: 1;
 }
 
 .overlay-gradient::after {
@@ -119,8 +119,8 @@ nav a:hover {
     background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%);
 }
 
-.overlay-gradient * {
-    z-index: 2;
+.overlay-gradient > * {
+    z-index: 1;
 }
 
 .wave {
@@ -196,9 +196,19 @@ nav a:hover {
     position: relative;
     display: inline-block;
     padding: 1em 1.75em;
-    background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%);
+
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    
     color: white;
+    background: linear-gradient(to right, rgba(39, 70, 229, 0.6) 0%, rgba(112, 21, 146, 0.7) 100%);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
     border-radius: 1.5em;
+
     transition: all 0.5s linear;
     overflow: hidden;
 }
@@ -206,11 +216,19 @@ nav a:hover {
 .btn-outline {
     position: relative;
     display: inline-block;
-    padding: 0.5em 1.1em;
-    background: none;
+    padding: 0.75em 1.5em;
+
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
     color: white;
+    background: none;
+    
     border: 2px solid white;
-    border-radius: 1.5em;
+    border-radius: 1.75em;
+
     transition: all 0.5s linear;
     overflow: hidden;
 }
@@ -219,16 +237,18 @@ nav a:hover {
     position: absolute;
     width: 0;
     height: 0;
+    display: block;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     background: white;
     transition: width 1s ease, height 1s ease;
-    z-index: -1;
+    z-index: 1;
 }
 
 .circle-fill:hover span {
-    width: 500px;
-    height: 500px;
+    width: 450px;
+    height: 450px;
+    z-index: -1;
 }
 
 .circle-fill:hover {
@@ -290,6 +310,10 @@ nav .nav-items {
 
 nav .nav-items > li {
     position: relative;
+}
+
+nav #get-started-btn {
+    padding: 0.5em 1.1em;
 }
 
 nav .dropdown {
@@ -377,13 +401,6 @@ nav .dropdown .feat-row {
     margin-bottom: 2.25em;
 }
 
-.landing-btn {
-    text-transform: uppercase;
-    font-size: 1em;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
 
 /* What is cloud storage section */
 
@@ -393,7 +410,7 @@ nav .dropdown .feat-row {
 }
 
 #cloud-storage article {
-    width: 60ch;
+    max-width: 60ch;
     position: relative;
 }
 
@@ -442,14 +459,15 @@ nav .dropdown .feat-row {
 }
 
 #why-us article {
-    width: 60ch;
+    max-width: 60ch;
+    text-align: center;
 }
 
 
 /* Features Section */
 
 #features > article {
-    width: 60ch;
+    max-width: 60ch;
     text-align: center;
 }
 
